@@ -19,7 +19,7 @@ function Footer() {
                 <div className="footer-right">
                     <div className="contact">Contact</div>
                     <a className="footer-email" href="mailto:jamiemovesyou33@gmail.com">E: jamiemovesyou33@gmail.com</a>
-                    <div className="footer-number">C: (347) 296-9166</div>
+                    <a className="footer-number" href="tel:+13472969166" >C: (347) 296-9166</a>
                 </div>
 
             </div>

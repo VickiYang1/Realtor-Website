@@ -1,7 +1,16 @@
+.login{
+    background-image: url('./images/brooklyn-bridge.png');
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    overflow: hidden; 
+    height: 100vh;
+}
 .login-container {
+    color: white;
     display: flex;
     flex-direction: column;
     margin: 5% auto; 
+    margin-top:15%;
     border-style: solid;
     border-radius:2%;
     border-width: 2px;
@@ -18,12 +27,15 @@
 }
 
 .login-input{
+    border-color: white;
     font-size: 20px;
     border: 2px solid;
+    border: 2px solid white;
 }
 
 .login-btn{
     width: 100px;
     border-width: 2px;
     font-size: 20px;
+    border-color: white;
 }
