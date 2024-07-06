@@ -1,0 +1,29 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    margin: 5% auto; 
+    border-style: solid;
+    border-radius:2%;
+    border-width: 2px;
+    padding: 3%;
+    align-items: center;
+    width:15%; 
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+.login-title{
+    font-size: 36px;
+    margin-bottom:40px;
+}
+
+.login-input{
+    font-size: 20px;
+    border: 2px solid;
+}
+
+.login-btn{
+    width: 100px;
+    border-width: 2px;
+    font-size: 20px;
+}
