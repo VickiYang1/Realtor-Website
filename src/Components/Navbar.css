@@ -16,7 +16,7 @@
     padding-left: 50px;
     padding-right: 50px;
     text-decoration: none;
-    font-size: 26px;
+    font-size: 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: aliceblue;
     position: relative; 
@@ -56,11 +56,11 @@
  
 .navbar-login{
     margin-left: 10px;
-    font-size: 26px;
+    font-size: 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding-left: 40px;
     padding-right: 40px;
-    height: 40px;
+    height: 30px;
     border-style: solid;
     border-width: 2px;
     color:aliceblue

@@ -7,7 +7,7 @@ function Navbar(){
         <div>
             <nav className="navbar">
                 <div className="navbar-container">
-                    <img src={require("./images/Name-Logo.png")} height={200} width={200} alt="Logo" />
+                    <img src={require("./images/Name-Logo.png")} height={150} width={150} alt="Logo" />
                     <span className="navbar-name"> Yan Mei Zheng (Jamie)</span>
                     <Link to="/" className="navbar-links">Home</Link>
                     <Link to="Portfolio" className="navbar-links">Portfolio</Link>
