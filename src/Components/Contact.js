@@ -1,49 +1,39 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import './Contact.css';
+import emailjs from '@emailjs/browser';
 
 function Homepage() {
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [phone, setPhone] = useState("");
-    const [message, setMessage] = useState("");
+    const form = useRef();
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-
-        //email message
-        const emailMessage = "You have a new message from ${name} from your portfolio: \nMessage: ${message}\nYou can contact them at \nPhone: ${phone}\nEmail: ${email}"
-
-        // Sending data to backend
-        const formData = { name, email, phone, message };
-        try {
-            const response = await fetch('/sendEmail', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
-            if (response.ok) {
-                alert('Message sent successfully!');
-                // Clear the form inputs after successful submission
-                setName("");
-                setEmail("");
-                setPhone("");
-                setMessage("");
-            } else {
-                alert('Failed to send message.');
-            }
-        } catch (error) {
-            console.error('Error sending message:', error);
-            alert('Failed to send message.');
-        }
-    };
+         // Logging form field values before sending
+         console.log("Name:", form.current.user_name.value);
+         console.log("Email:", form.current.user_email.value);
+         console.log("Phone:", form.current.user_phone.value);
+         console.log("Message:", form.current.user_message.value);
+    
+        emailjs
+          .sendForm('service_ws0phpu', 'template_sjcu2ug', form.current, 'z5rzK0dwEblngDS3N')
+          .then(
+            () => {
+              console.log('SUCCESS!');
+              alert('Message sent successfully!');
+              
+            },
+            (error) => {
+                console.error('Error sending message:', error);
+              alert('Failed to send message.');
+            },
+          );
+          e.target.reset();
+      };
 
     return (
         <div className="contact-tab">
             <div className="contact-left"> 
                 <div className="contact-details">CONTACT DETAILS</div>
-                <div className="name"> YAN MEI ZHENG (JAMIE)</div>
+                <div className="name">YAN MEI ZHENG (JAMIE)</div>
 
                 <div className="contact-container">
                     <div className="images">
@@ -72,33 +62,29 @@ function Homepage() {
                     updates or schedule a chat. I can't wait to hear from you and dive into 
                     the world of real estate together!</p>
 
-                <form onSubmit={handleSubmit}>
+                <form ref={form} onSubmit={handleSubmit}>
                     <div>NAME</div>
                     <input
                         type="text"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
+                        name="user_name"
                         required
                     />
                     <div>EMAIL</div>
                     <input
                         type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        name="user_email"
                         required
                     />
                     <div>PHONE</div>
                     <input
                         type="tel"
-                        value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
+                        name="user_phone"
                         required
                     />
                     <div>MESSAGE</div>
                     <textarea
                         className="large-text"
-                        value={message}
-                        onChange={(e) => setMessage(e.target.value)}
+                        name="user_message"
                         required
                     ></textarea>
                     <br/>
